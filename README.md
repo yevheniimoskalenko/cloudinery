@@ -1,6 +1,6 @@
-# reCAPTCHA
+# cloudinary for site and show photo
 
-> captcha from google
+> cloudinary upload file in server cloudinary
 
 ## Build Setup
 
