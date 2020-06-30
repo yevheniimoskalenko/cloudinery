@@ -5,6 +5,7 @@
       class="upload-demo"
       action="http://localhost:3000/api/cloudinery"
       :auto-upload="false"
+      :on-success="hendleSuccess"
     >
       <el-button slot="trigger" size="small" type="primary"
         >select file</el-button
@@ -20,6 +21,9 @@
         jpg/png files with a size less than 500kb
       </div>
     </el-upload>
+    <div v-for="(image, index) in images" :key="index" class="img">
+      <img :src="image" />
+    </div>
   </div>
 </template>
 
@@ -27,11 +31,19 @@
 export default {
   components: {},
   data() {
-    return {}
+    return {
+      images: []
+    }
   },
   methods: {
     submitUpload() {
       this.$refs.upload.submit()
+    },
+    hendleSuccess(response, file, fileList) {
+      this.images.push(response.secure_url)
+      console.group(`response`)
+      console.log(response)
+      console.groupEnd()
     }
   },
   head: {
@@ -45,5 +57,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 </style>
