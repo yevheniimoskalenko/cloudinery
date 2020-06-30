@@ -1,4 +1,4 @@
-# cloudinary for site and show photo
+# cloudinary for push site and show photo
 
 > cloudinary upload file in server cloudinary
 
